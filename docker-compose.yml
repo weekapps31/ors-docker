@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  ors:
+    image: gisops/openrouteservice:latest
+    container_name: ors-app
+    ports:
+      - "8080:8080"
+    environment:
+      - "JAVA_OPTS=-Djava.awt.headless=true"
+    volumes:
+      - ./graphs:/ors-core/data/graphs
+      - ./elevation_cache:/ors-core/data/elevation_cache
+      - ./logs:/var/log/ors
+      - ./conf:/ors-core/openrouteservice/WEB-INF/classes
