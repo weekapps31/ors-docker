@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # تحميل dependencies وبناء المشروع
-RUN ./gradlew build -x test
+RUN gradle build -x test
 
 # فتح البورت الافتراضي
 EXPOSE 8080
